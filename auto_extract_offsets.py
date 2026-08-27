@@ -1191,7 +1191,7 @@ def generate_targeth(target_name, build_info, kimage_base, phys_offset,
     lines.append("#undef SLIDE_LOGGERS_0_1_OFF")
     lines.append("#define SLIDE_LOGGERS_0_1_OFF 0x2102F38ULL")
     lines.append("#undef SLIDE_RANDOM_BOOT_ID_DATA_OFF")
-    lines.append("#define SLIDE_RANDOM_BOOT_ID_DATA_OFF 0x22288C4ULL")
+    lines.append("#define SLIDE_RANDOM_BOOT_ID_DATA_OFF 0x22288C2ULL")
     lines.append("#undef SLIDE_SYSCTL_BOOTID_OFF")
     lines.append("#define SLIDE_SYSCTL_BOOTID_OFF 0x2367EE0ULL")
 
