@@ -1183,8 +1183,19 @@ def generate_targeth(target_name, build_info, kimage_base, phys_offset,
     for name, val in fops_defs:
         lines.append(f"#define {name} {val}")
     lines.append("")
-    lines.append("#endif")
+    
+                         
+    # ===== 强制覆盖 SLIDE 偏移量 =====
+    lines.append("#undef SLIDE_NFULNL_LOGGER_OFF")
+    lines.append("#define SLIDE_NFULNL_LOGGER_OFF 0x2102268ULL")
+    lines.append("#undef SLIDE_LOGGERS_0_1_OFF")
+    lines.append("#define SLIDE_LOGGERS_0_1_OFF 0x2102F38ULL")
+    lines.append("#undef SLIDE_RANDOM_BOOT_ID_DATA_OFF")
+    lines.append("#define SLIDE_RANDOM_BOOT_ID_DATA_OFF 0x22288C0ULL")
+    lines.append("#undef SLIDE_SYSCTL_BOOTID_OFF")
+    lines.append("#define SLIDE_SYSCTL_BOOTID_OFF 0x2367EE0ULL")
 
+    lines.append("#endif")
     return '\n'.join(lines) + '\n'
 
 
